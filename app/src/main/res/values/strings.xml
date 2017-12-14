@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SonicAndFriends</string>
+    <string name="reset">Reset</string>
+    <string name="start">Start</string>
+    <string name="score">Score</string>
+    <string name="reset_score">Reset Score</string>
+    <string name="sonicScoreTV">Sonic: 0</string>
+    <string name="tailsScoreTV">Tails: 0</string>
+</resources>
