@@ -1,6 +1,7 @@
 package mcgee.sonicandfriends;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private int sonicScore = 0;
     private int tailsScore = 0;
 
+    private SharedPreferences savedValues;
+
     public void gameCheck() {
         winnerCheck(btnTL, btnTM, btnTR);
         winnerCheck(btnML, btnMM, btnMR);
@@ -33,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         winnerCheck(btnTR, btnMM, btnBL);
     }
 
+    //determine winner based on 3 icons in a row
     private void winnerCheck(Button btnTL, Button btnTM, Button btnTR) {
 
         sonicTV = (TextView) findViewById(R.id.sonicTV);
@@ -52,28 +56,30 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //reset game method for after a player wins
     public void reset() {
         playerTurn = 1;
         btnTL.setText("");
-        btnTL.setBackgroundDrawable(getResources().getDrawable(R.drawable.chaosemeralds));
+        btnTL.setBackground(getResources().getDrawable(R.drawable.chaosemeralds));
         btnTM.setText("");
-        btnTM.setBackgroundDrawable(getResources().getDrawable(R.drawable.chaosemeralds));
+        btnTM.setBackground(getResources().getDrawable(R.drawable.chaosemeralds));
         btnTR.setText("");
-        btnTR.setBackgroundDrawable(getResources().getDrawable(R.drawable.chaosemeralds));
+        btnTR.setBackground(getResources().getDrawable(R.drawable.chaosemeralds));
         btnML.setText("");
-        btnML.setBackgroundDrawable(getResources().getDrawable(R.drawable.chaosemeralds));
+        btnML.setBackground(getResources().getDrawable(R.drawable.chaosemeralds));
         btnMM.setText("");
-        btnMM.setBackgroundDrawable(getResources().getDrawable(R.drawable.chaosemeralds));
+        btnMM.setBackground(getResources().getDrawable(R.drawable.chaosemeralds));
         btnMR.setText("");
-        btnMR.setBackgroundDrawable(getResources().getDrawable(R.drawable.chaosemeralds));
+        btnMR.setBackground(getResources().getDrawable(R.drawable.chaosemeralds));
         btnBL.setText("");
-        btnBL.setBackgroundDrawable(getResources().getDrawable(R.drawable.chaosemeralds));
+        btnBL.setBackground(getResources().getDrawable(R.drawable.chaosemeralds));
         btnBM.setText("");
-        btnBM.setBackgroundDrawable(getResources().getDrawable(R.drawable.chaosemeralds));
+        btnBM.setBackground(getResources().getDrawable(R.drawable.chaosemeralds));
         btnBR.setText("");
-        btnBR.setBackgroundDrawable(getResources().getDrawable(R.drawable.chaosemeralds));
+        btnBR.setBackground(getResources().getDrawable(R.drawable.chaosemeralds));
     }
 
+    //reset score button method
     public void resetscore(View view) {
         sonicScore = 0;
         sonicTV.setText("Sonic: 0");
@@ -259,4 +265,40 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    //reset game button method
+    public void resetboard(View view) {
+        playerTurn = 1;
+        btnTL.setText("");
+        btnTL.setBackground(getResources().getDrawable(R.drawable.chaosemeralds));
+        btnTM.setText("");
+        btnTM.setBackground(getResources().getDrawable(R.drawable.chaosemeralds));
+        btnTR.setText("");
+        btnTR.setBackground(getResources().getDrawable(R.drawable.chaosemeralds));
+        btnML.setText("");
+        btnML.setBackground(getResources().getDrawable(R.drawable.chaosemeralds));
+        btnMM.setText("");
+        btnMM.setBackground(getResources().getDrawable(R.drawable.chaosemeralds));
+        btnMR.setText("");
+        btnMR.setBackground(getResources().getDrawable(R.drawable.chaosemeralds));
+        btnBL.setText("");
+        btnBL.setBackground(getResources().getDrawable(R.drawable.chaosemeralds));
+        btnBM.setText("");
+        btnBM.setBackground(getResources().getDrawable(R.drawable.chaosemeralds));
+        btnBR.setText("");
+        btnBR.setBackground(getResources().getDrawable(R.drawable.chaosemeralds));
+    }
+
+    @Override
+    protected void onPause() {
+        //i can save variables but no clue how to save current background images on the buttons
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //no clue how to save/set background images on buttons in progress
+    }
+
 }
